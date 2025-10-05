@@ -233,6 +233,6 @@ académico e pessoal.
 
 
 ## Mockups
-![Mockup1](iMG_0164.jpeg.jpeg)
-![Mockup2](iMG_0165.jpeg.jpeg)
-![Mockup3](iMG_0167.jpeg.jpeg)
+![Mockup1](IMG_0164.jpeg.jpeg)
+![Mockup2](IMG_0165.jpeg.jpeg)
+![Mockup3](IMG_0167.jpeg.jpeg)
