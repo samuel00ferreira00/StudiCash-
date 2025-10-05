@@ -4,39 +4,6 @@
 Docente: Pedro Rosa
 
 # Briefing do projeto: Sudicash
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 🔗 Links do repositório
 [Repositório](https://github.com/samuel00ferreira00/StudiCash-.git)
 
@@ -218,6 +185,7 @@ Frameworks: Spring Boot
 Website: Figma,Github
 Linguagens: Java,Kotlin e sql
 Aplicações: Mysql Workbench, Visual Studio Code, Android Studio
+
 ## Conclusão
 O aplicativo studycash é uma solução prática e útil que surge para ajudar os
 estudantes a organizar e gerir melhor as suas finanças pessoais. Com esta aplicação
@@ -232,7 +200,13 @@ para os estudantes, promovendo maior controle e equilíbrio económico no dia a 
 académico e pessoal.
 
 
-## Mockups
-![Mockup1](IMG_0164.jpeg)
-![Mockup2](IMG_0165.jpeg)
-![Mockup3](IMG_0167.jpeg)
+## Bibliografia
+
+Krug, S. (2014). Don't Make Me Think: A Common Sense Approach to Web
+Usability (3ª ed.). New Riders.
+Investopedia. (2023). Personal Finance Basics: A Beginner's Guide to Financial
+Literacy. Disponível em: https://www.investopedia.com
+Android Developers. (2024). Build modern Android apps with Jetpack Compose.
+Disponível em: https://developer.android.com/jetpack/compose
+Deitel, P. J., & Deitel, H. M. (2020). Android for Programmers: An App-Driven
+Approach. Pearson Education.
