@@ -1,4 +1,4 @@
-
+![LOGO_IADE](iade_ue_normal_rgb.webp)
 # Universidade Europeia IADE
 ## Licenciatura em Engenharia informática
 Docente: Pedro Rosa
@@ -230,3 +230,9 @@ responsáveis e sustentáveis.
 O seu objetivo principal é tornar a gestão financeira mais simples, acessível e eficaz
 para os estudantes, promovendo maior controle e equilíbrio económico no dia a dia
 académico e pessoal.
+
+
+## Mockups
+![Mockup1](iMG_0164.jpeg.jpeg)
+![Mockup2](iMG_0165.jpeg.jpeg)
+![Mockup3](iMG_0167.jpeg.jpeg)
