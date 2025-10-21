@@ -11,6 +11,7 @@ Docente: Pedro Rosa
 ## Autores
 
 - [Constantino Chipopa](https://www.github.com/Chipopa1) - 20241231
+- [Gilma Mulanda](https://www.github.com/Gilma-De-Sousa) - 20241087
 - [Lueji Covilhã](https://www.github.com/lucovilha) - 20241725
 - [Marlinda Congo](https://www.github.com/Marlinda21) - 20241718
 - [Samuel Ferreira](https://www.github.com/samuel00ferreira00) - 20220755
