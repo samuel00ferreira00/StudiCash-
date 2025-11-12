@@ -1,4 +1,4 @@
-![LOGO_IADE](iade_ue_normal_rgb.webp)
+![LOGO_IADE](imagensRelatorio/iade_ue_normal_rgb.webp)
 # Universidade Europeia IADE
 ## Licenciatura em Engenharia informática
 Docente: Pedro Rosa
@@ -78,32 +78,103 @@ com os propostos no Studycash.
 • You need a budget (YNAB)
 ## Guiões
 
-• Gestão de Orçamentos e Despesas
-Objetivo: O utilizador quer organizar as suas finanças pessoais.
+Menu principal
 Passos:
-1. Abre a aplicação → página inicial.
-2. Clica em “Gerir” no menu inferior.
-3. Cria um novo orçamento mensal (ex.: “Outubro 2025”).
-4. Adiciona a renda fixa e contas mensais (ex.: aluguel, internet, academia).
-5. Registra uma despesa variável (ex.: jantar fora).
-6. Ajusta os gastos futuros para não ultrapassar o limite.
-• Interação Social no Chat Geral
-Objetivo: O utilizador quer trocar ideias sobre investimentos.
+• Abre o aplicativo → é direcionado para a Página Inicial.
+
+• Vê o saldo atual e o resumo das receitas e despesas.
+
+• Analisa as transações recentes (ex.: “Almoço RU”, “Mesada”).
+
+• Clica em “Ver todas” para abrir o histórico completo.
+
+• Observa se está a gastar mais do que recebe e planeia ajustes futuros.
+Histórico de Transações
+
 Passos:
-1. Abre a app → seleciona “Chat” no menu inferior.
-2. Entra no grupo geral de conversas.
-3. Lê mensagens de outros utilizadores sobre investimentos.
-4. Escreve uma dúvida: “Qual ETF recomenda para iniciantes?”
-5. Recebe respostas de outros membros com dicas.
-• Análise Financeira com Gráficos
-Objetivo: O utilizador quer visualizar os seus resultados financeiros.
-Passos Fluxo:
-1. Abre a app → vai em “Análises”.
-2. Escolhe visualizar os dados do mês atual.
-3. Vê gráficos interativos com:
-3.1 Despesas, receitas e poupanças ao longo do tempo.
-4. Descobre que gastou menos em transporte e mais em alimentação.
-5. Define uma meta de poupança maior para o próximo mês.
+• No menu inferior, seleciona “Transações”.
+
+• Vê os totais de Receitas e Despesas destacados no topo.
+
+• Usa o campo “Buscar transações…” para encontrar algo específico.
+
+• Filtra por “Todas”, “Receitas” ou “Despesas”.
+
+• Analisa cada item com data, categoria e valor (ex.: “Material Escolar -45,50 €”).
+
+Adicionar Nova Transação
+Passos:
+
+• Toca no botão “+” do menu inferior.
+
+• Escolhe o tipo de transação:
+
+• Despesa (ex.: almoço, transporte)
+
+• Receita (ex.: mesada, salário)
+
+1. Preenche os campos:
+
+a. Título (ex.: “Almoço no RU”)
+
+b. Valor (ex.: “12,50 €”)
+
+2. 3. c. Categoria (ex.: “Alimentação”)
+
+d. Data
+
+Clica em “Adicionar Despesa” ou “Adicionar Receita”.
+
+A transação aparece automaticamente na lista e atualiza o saldo.
+
+Orçamento
+
+Passos:
+• No menu inferior, seleciona “Orçamento”.
+
+• Observa o Gasto Total e o Orçamento Planeado.
+
+• Acompanha a barra de progresso para ver o percentual utilizado.
+
+• Analisa o gráfico de Distribuição de Gastos por categoria (Alimentação, Educação,
+Transporte, etc.).
+
+• Verifica na seção “Por Categoria” quais áreas estão a consumir mais do orçamento.
+
+• Faz ajustes nos gastos para manter-se dentro dos limites mensa
+Metas
+Passos:
+• No menu inferior, toca em “Metas”.
+
+• Preenche o formulário com:
+• Título (ex.: “Viagem”)
+
+• Valor da meta (ex.: “220 €”)
+
+• Categoria e Data.
+
+• Clica em “Adicionar Meta”.
+
+• Acompanha o progresso (ex.: “70 € de 220 € – 70%”).
+
+• Usa essa visualização para motivar-se a economizar e atingir o objetivo
+Perfil
+Passos:
+
+1. Clica no ícone “Perfil” no canto superior direito.
+
+2. Visualiza seus dados:
+    a. Nome, e-mail e área de estudo.
+
+3. Consulta estatísticas gerais:
+
+    a. Total de transações realizadas e valor economizado.
+
+4. 5. 6. Ativa ou desativa notificações financeiras.
+
+Entra em Metas Financeiras para editar objetivos.
+
+Clica em “Sair da Conta” quando quiser encerrar a sessão.
 
 
 ## Descrição genérica da solução a implementar
@@ -139,41 +210,29 @@ métodos e técnicas que possibilitarão uma apresentação mais eficaz do proje
 as melhores práticas de comunicação e transmissão de informações.
 ## Requisitos técnicos para o desenvolvimento do projeto
 
-1. Plataforma e Ambiente de desenvolvimento
-• Suporte para Android e/ou iOS (multiplataforma, caso seja usado Flutter, React Native ou
-similar).
-• IDEs recomendadas: Android Studio, Xcode, ou Visual Studio Code (para frameworks
-cross-platform).
-• SDKs compatíveis com a versão mínima do sistema operacional alvo.
-2. Linguagens de Programação
-• Dart (para Flutter) ou Java/Kotlin (para Android) ou Swift (para iOS).
-• JavaScript/TypeScript (para React Native).
-• SQL para manipulação da base de dados relacional.
+1. Plataforma e Ambiente de Desenvolvimento
+• Aplicação Android desenvolvida em Kotlin com Jetpack Compose.
+• Backend em Java com Spring Boot, arquitetura MVC e API REST.
+• Ferramentas: Android Studio Koala 2024.1.2, IntelliJ/Eclipse, Maven/Gradle.
+2. Linguagens de promogramação
+• Java (backend), Kotlin (frontend) e SQL (base de dados).
 3. Banco de Dados
-• Sistema de gestão de base de dados relacional: MySQL, SQLite (local) ou Firebase
-Realtime Database/Firestore (online).
-• Estrutura organizada com tabelas para: usuários, despesas, receitas, orçamentos e metas.
-• Implementação de consultas SQL ou API para acesso, inserção, atualização e remoção de
-dados.
-4. Interface e Experiência do Usuário (UI/UX)
-• Interfaces responsivas para diferentes tamanhos de tela.
-• Navegação intuitiva e clara entre telas de registro de despesas, visualização de relatórios e
-metas de poupança.
-• Uso de componentes gráficos como gráficos de barras e pizza, listas e formulários
-interativos.
-5. Segurança e Autenticação
-• Proteção de dados sensíveis dos utilizadores.
-• Sistema de autenticação: login com e-mail e senha ou integração com OAuth (Google,
-Facebook).
-• Criptografia de dados sensíveis, especialmente informações financeiras. 9 6.
-Funcionalidades Extras / Técnicas
-• Notificações push para alertar sobre limites de orçamento e prazos de pagamento. •
-Armazenamento local para permitir o uso offline (sincronização quando online).
-• Gerenciamento de erros e validação de dados (por exemplo, não permitir valores negativos
-em despesas).
-7. Ferramentas de Controle e Versionamento
-• Controle de versão do código com Git e repositório em GitHub, GitLab ou Bitbucket.
-• Testes unitários e testes de integração para garantir a confiabilidade do sistema.
+• Relacional: PostgreSQL ou MySQL.
+• Tabelas: usuários, receitas, despesas, orçamentos e metas.
+• Implementação via Spring Data JPA e CRUD completo.
+4. Interface (UI/UX)
+• Desenvolvida em Jetpack Compose, baseada no Material Design 3.
+• Mockups obrigatórios no Figma.
+• Interface responsiva, intuitiva e com gráficos interativos.
+5. Segurança
+• Login com e-mail e senha.
+• Criptografia (BCrypt) e HTTPS.
+• Validação de dados no cliente e servidor.
+6. Gestão e Versionamento
+• GitHub: código e documentação.
+• ClickUp: gestão de tarefas.
+• Discord: comunicação da equipa.
+• Figma: protótipos.
 
 ##  Arquitetura de solução
 
@@ -199,12 +258,81 @@ diversos mecanismos de proteção de dados integrados através do Spring Boot. E
 por armazenar todas as informações relacionadas a orçamentos, despesas e utilizadores, garantindo
 a segurança, integridade e disponibilidade dos dados.
 
+
 ## Tecnologias a utilizar
 O desenvolvimento do projeto contou com as seguintes tecnologias:
 Frameworks: Spring Boot
 Website: Figma
 Linguagens: Java, Kotlin e SQL
 Aplicações: MYSQL Workbench, Gitbhub, Discord, Clickup, Visual Studio Code, Android Studio.
+
+## Planeamento e calendarização
+![imagem](imagensRelatorio/b4722051-6527-4cd4-847d-39d562edc95a.JPG)
+
+## Personas
+O Gustavo, o Estudante Financeiramente Organizado
+Idade: 21 anos
+Curso: Engenharia de Software
+Nível de conhecimento finaceiro: Avançado
+Objetivos
+• Controlar receitas e despesas mensais com precisão.
+• Acompanhar metas de poupança (ex.: economizar para comprar um computador novo).
+• Analisar gráficos e relatórios financeiros para otimizar gastos.
+Comportamento e Frustrações
+• Usa planilhas ou apps bancários, mas sente falta de uma ferramenta central e visual.
+• Às vezes perde tempo ajustando categorias e valores manualmente.
+• Quer evitar gastos repetitivos e compras impulsivas.
+Motivações para usar o StudyCash
+• Deseja um app intuitivo e analítico para gerenciar seu orçamento estudantil.
+• Quer relatórios automáticos e alertas de limite de orçamento.
+• Valoriza um design minimalista e funcional, que facilite a comparação entre meses.
+Luzia, a Estudante Financeiramente Iniciante
+Idade: 22 anos
+Curso: comunicação Social
+Nível de conhecimento finaceiro: Básico
+Objetivos
+• Aprender a gerir o próprio dinheiro de forma simples e prática.
+• Evitar gastar mais do que ganha e criar hábitos de poupança.
+• Ter uma visão clara de onde o dinheiro está sendo gasto.
+Comportamento e Frustrações
+• Costuma gastar por impulso e não acompanha seus gastos.
+• Fica surpresa ao final do mês por não saber para onde o dinheiro foi.
+• Acha os aplicativos financeiros difíceis e confusos, cheios de termos técnicos.
+Motivações para usar o StudyCash
+• Busca um app educativo e simples, com sistema de categorização automática de
+despesas para compreender melhor onde gastar mais.
+• Aprecia visualizar gráficos interativos e relatórios mensais que mostram a evolução
+dos gastos.
+• Valoriza receber notificações de limite de orçamento e definir metas financeiras que
+ajudam a manter o controlo.
+
+
+## Diagrama de classes
+
+![imagem](imagensRelatorio/ba8789a5-e40b-4c1e-99a0-37920cfc1ac5.JPG)
+
+## Dicionário de dados
+### Utilizadores
+![imagem](imagensRelatorio/2987a25f-12b1-47d6-977f-814bc737970e.JPG)
+### Metas
+![imagem](imagensRelatorio/de17a64a-fa60-48c9-a6bd-55c06709b4a5.JPG)
+### Orçamentos
+![imagem](imagensRelatorio/79d80e67-8a6b-4b61-9cf2-7e9b9b26d261.JPG)
+### Transações
+![imagem](imagensRelatorio/f3ecfb82-0ce9-4c80-871d-78a17be99ede.JPG)
+### Tipo transações
+![imagem](imagensRelatorio/08f84691-260a-4623-9611-3c6ec917bf18.JPG)
+### Conta 
+![imagem](imagensRelatorio/04384bab-527f-4abf-9751-928bf10a3c15.JPG)
+### Tipo de conta 
+![imagem](imagensRelatorio/35b50a5c-e6cf-41d0-a3d2-fd5258510574.JPG)
+### Transferências
+![imagem](imagensRelatorio/08f84691-260a-4623-9611-3c6ec917bf18.JPG)
+### Orçamento Transação 
+![imagem](imagensRelatorio/95edd261-6630-432d-8e04-f1f9e6bfc6ef.JPG)
+
+## MER
+![imagem](imagensRelatorio/00c2224e-422c-4efc-9b7f-f78b9109d3d1.JPG)
 
 ## Conclusão
 O aplicativo studycash é uma solução prática e útil que surge para ajudar os
@@ -218,6 +346,7 @@ responsáveis e sustentáveis.
 O seu objetivo principal é tornar a gestão financeira mais simples, acessível e eficaz
 para os estudantes, promovendo maior controle e equilíbrio económico no dia a dia
 académico e pessoal.
+
 
 
 ## Bibliografia
