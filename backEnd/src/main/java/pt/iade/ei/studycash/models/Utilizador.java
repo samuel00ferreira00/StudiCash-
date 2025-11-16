@@ -1,6 +1,7 @@
 package pt.iade.ei.studycash.models;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "utilizadores")
@@ -13,6 +14,7 @@ public class Utilizador {
     private String nomeDoUtilizador;
 
     private String email;
+    @JsonIgnore
     private String senha;
 
     public Utilizador() {}

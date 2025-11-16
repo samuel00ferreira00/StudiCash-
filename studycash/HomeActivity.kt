@@ -47,6 +47,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import pt.iade.ei.studycash.ui.theme.StudyCashTheme
+import androidx.compose.runtime.LaunchedEffect
+import pt.iade.ei.studycash.network.RetrofitClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class HomeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,6 +68,29 @@ class HomeActivity : ComponentActivity() {
 @Composable
 fun HomeScreen() {
     val bg = Color(0xFFD6F5F7)
+    val utilizadoresCountState = remember { mutableStateOf<Int?>(null) }
+
+    LaunchedEffect(Unit) {
+        RetrofitClient.api.getUtilizadores().enqueue(object : Callback<List<pt.iade.ei.studycash.network.dto.UtilizadorDto>> {
+            override fun onResponse(
+                call: Call<List<pt.iade.ei.studycash.network.dto.UtilizadorDto>>,
+                response: Response<List<pt.iade.ei.studycash.network.dto.UtilizadorDto>>
+            ) {
+                if (response.isSuccessful) {
+                    utilizadoresCountState.value = response.body()?.size
+                } else {
+                    utilizadoresCountState.value = 0
+                }
+            }
+
+            override fun onFailure(
+                call: Call<List<pt.iade.ei.studycash.network.dto.UtilizadorDto>>,
+                t: Throwable
+            ) {
+                utilizadoresCountState.value = 0
+            }
+        })
+    }
 
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(
@@ -71,6 +99,20 @@ fun HomeScreen() {
                 .background(bg)
         ) {
             HeaderSection(userName = "João Silva")
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "Utilizadores: ${utilizadoresCountState.value ?: "-"}",
+                    color = Color.DarkGray,
+                    fontSize = 14.sp
+                )
+            }
 
             Spacer(Modifier.height(12.dp))
 
