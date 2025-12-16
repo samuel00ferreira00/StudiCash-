@@ -1,146 +1,10 @@
 -- =============================================
--- STUDYCASH - SCRIPT COMPLETO DA BASE DE DADOS
--- Aplicação de Gestão Financeira para Estudantes
--- Universidade Europeia IADE - Engenharia Informática
+-- StudyCash - Script de Inserção de Dados
+-- Dados de exemplo para testes e demonstração
+-- Base de dados completa com histórico de 6 meses
 -- =============================================
--- Autores:
--- • Samuel Ferreira - 20220755
--- • Constantino Chipopa - 20241231
--- • Gilma Mulanda - 20241087
--- • Lueji Covilhã - 20241725
--- • Marlinda Congo - 20241718
--- =============================================
-
--- =============================================
--- PARTE 1: CRIAÇÃO DA BASE DE DADOS E TABELAS
--- =============================================
-
--- Eliminar base de dados se existir (para reinstalação limpa)
-DROP DATABASE IF EXISTS studycash;
-
--- Criar base de dados
-CREATE DATABASE studycash
-CHARACTER SET utf8mb4
-COLLATE utf8mb4_unicode_ci;
 
 USE studycash;
-
--- =============================================
--- Tabela: users (Utilizadores)
--- Armazena informações dos utilizadores do sistema
--- =============================================
-CREATE TABLE users (
-    id_user INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    notificacoes TINYINT(1) DEFAULT 1,
-    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    
-    INDEX idx_email (email)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- =============================================
--- Tabela: carteira (Carteira do Utilizador)
--- Cada utilizador possui uma carteira com saldo
--- =============================================
-CREATE TABLE carteira (
-    id_carteira INT AUTO_INCREMENT PRIMARY KEY,
-    id_user INT NOT NULL,
-    saldo DOUBLE NOT NULL DEFAULT 0.00,
-    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    
-    FOREIGN KEY (id_user) REFERENCES users(id_user) 
-        ON DELETE CASCADE 
-        ON UPDATE CASCADE,
-    INDEX idx_user (id_user)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- =============================================
--- Tabela: categoria (Categorias de Transações)
--- Categorias para organizar receitas e despesas
--- =============================================
-CREATE TABLE categoria (
-    id_categoria BIGINT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
-    tipo VARCHAR(50) NOT NULL COMMENT 'Receita ou Despesa',
-    icone VARCHAR(50) DEFAULT NULL,
-    
-    INDEX idx_tipo (tipo)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- =============================================
--- Tabela: transacao (Transações Financeiras)
--- Registos de receitas e despesas dos utilizadores
--- =============================================
-CREATE TABLE transacao (
-    id_transacao BIGINT AUTO_INCREMENT PRIMARY KEY,
-    id_carteira INT NOT NULL,
-    id_categoria BIGINT DEFAULT NULL,
-    descricao VARCHAR(255) NOT NULL,
-    valor DOUBLE NOT NULL,
-    tipo VARCHAR(50) NOT NULL COMMENT 'Receita ou Despesa',
-    data_transacao DATE NOT NULL,
-    localizacao VARCHAR(255) DEFAULT NULL,
-    latitude DOUBLE DEFAULT NULL,
-    longitude DOUBLE DEFAULT NULL,
-    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    
-    FOREIGN KEY (id_carteira) REFERENCES carteira(id_carteira) 
-        ON DELETE CASCADE 
-        ON UPDATE CASCADE,
-    FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria) 
-        ON DELETE SET NULL 
-        ON UPDATE CASCADE,
-    INDEX idx_carteira (id_carteira),
-    INDEX idx_tipo (tipo),
-    INDEX idx_data (data_transacao)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- =============================================
--- Tabela: meta (Metas Financeiras)
--- Objetivos de poupança dos utilizadores
--- =============================================
-CREATE TABLE meta (
-    id_meta BIGINT AUTO_INCREMENT PRIMARY KEY,
-    id_user INT NOT NULL,
-    nome VARCHAR(255) NOT NULL,
-    valor_objetivo DOUBLE NOT NULL,
-    valor_atual DOUBLE NOT NULL DEFAULT 0.00,
-    data_inicio DATE DEFAULT NULL,
-    data_fim DATE DEFAULT NULL,
-    concluida TINYINT(1) DEFAULT 0,
-    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    
-    FOREIGN KEY (id_user) REFERENCES users(id_user) 
-        ON DELETE CASCADE 
-        ON UPDATE CASCADE,
-    INDEX idx_user (id_user)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- =============================================
--- Tabela: orcamento (Orçamentos Mensais)
--- Limites de gastos mensais dos utilizadores
--- =============================================
-CREATE TABLE orcamento (
-    id_orcamento BIGINT AUTO_INCREMENT PRIMARY KEY,
-    id_user INT NOT NULL,
-    id_carteira BIGINT DEFAULT NULL,
-    mes VARCHAR(20) NOT NULL COMMENT 'Formato: Mês Ano',
-    limite DOUBLE NOT NULL,
-    gasto_atual DOUBLE NOT NULL DEFAULT 0.00,
-    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    
-    FOREIGN KEY (id_user) REFERENCES users(id_user) 
-        ON DELETE CASCADE 
-        ON UPDATE CASCADE,
-    INDEX idx_user (id_user),
-    INDEX idx_mes (mes)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- =============================================
--- PARTE 2: INSERÇÃO DE DADOS
--- =============================================
 
 -- =============================================
 -- Inserir Utilizadores (Equipa do Projeto + Extras)
@@ -185,7 +49,7 @@ INSERT INTO carteira (id_user, saldo) VALUES
 -- =============================================
 -- Inserir Categorias Completas
 -- =============================================
--- Categorias de Receita (IDs 1-10)
+-- Categorias de Receita
 INSERT INTO categoria (nome, tipo, icone) VALUES
 ('Salário', 'Receita', '💰'),
 ('Mesada', 'Receita', '🎁'),
@@ -198,7 +62,7 @@ INSERT INTO categoria (nome, tipo, icone) VALUES
 ('Prémios', 'Receita', '🏆'),
 ('Outros Ganhos', 'Receita', '💵');
 
--- Categorias de Despesa (IDs 11-25)
+-- Categorias de Despesa
 INSERT INTO categoria (nome, tipo, icone) VALUES
 ('Alimentação', 'Despesa', '🍔'),
 ('Transporte', 'Despesa', '🚌'),
@@ -319,6 +183,7 @@ INSERT INTO transacao (id_carteira, id_categoria, descricao, valor, tipo, data_t
 -- TRANSAÇÕES DA MARIA (id_carteira = 2)
 -- =============================================
 INSERT INTO transacao (id_carteira, id_categoria, descricao, valor, tipo, data_transacao, localizacao, latitude, longitude) VALUES
+-- Receitas
 (2, 1, 'Estágio Remunerado Outubro', 600.00, 'Receita', '2024-10-01', 'Empresa Tech Lisboa', 38.7100, -9.1300),
 (2, 1, 'Estágio Remunerado Novembro', 600.00, 'Receita', '2024-11-01', 'Empresa Tech Lisboa', 38.7100, -9.1300),
 (2, 1, 'Estágio Remunerado Dezembro', 600.00, 'Receita', '2024-12-01', 'Empresa Tech Lisboa', 38.7100, -9.1300),
@@ -326,6 +191,7 @@ INSERT INTO transacao (id_carteira, id_categoria, descricao, valor, tipo, data_t
 (2, 2, 'Mesada Novembro', 150.00, 'Receita', '2024-11-05', NULL, NULL, NULL),
 (2, 2, 'Mesada Dezembro', 150.00, 'Receita', '2024-12-05', NULL, NULL, NULL),
 (2, 8, 'Venda Livros Usados', 45.00, 'Receita', '2024-11-10', 'OLX', NULL, NULL),
+-- Despesas
 (2, 11, 'Supermercado Semanal', 45.00, 'Despesa', '2024-12-03', 'Continente', 38.7200, -9.1400),
 (2, 11, 'Supermercado', 52.30, 'Despesa', '2024-12-10', 'Pingo Doce', 38.7200, -9.1400),
 (2, 12, 'Uber para Universidade', 8.50, 'Despesa', '2024-12-04', 'Lisboa', 38.7223, -9.1393),
@@ -343,11 +209,13 @@ INSERT INTO transacao (id_carteira, id_categoria, descricao, valor, tipo, data_t
 -- TRANSAÇÕES DO JOÃO (id_carteira = 3)
 -- =============================================
 INSERT INTO transacao (id_carteira, id_categoria, descricao, valor, tipo, data_transacao, localizacao, latitude, longitude) VALUES
+-- Receitas
 (3, 2, 'Mesada Outubro', 250.00, 'Receita', '2024-10-01', NULL, NULL, NULL),
 (3, 2, 'Mesada Novembro', 250.00, 'Receita', '2024-11-01', NULL, NULL, NULL),
 (3, 2, 'Mesada Dezembro', 250.00, 'Receita', '2024-12-01', NULL, NULL, NULL),
 (3, 6, 'Presente de Aniversário', 50.00, 'Receita', '2024-12-10', NULL, NULL, NULL),
 (3, 9, 'Prémio Torneio FIFA', 30.00, 'Receita', '2024-11-15', 'Gaming Center', 38.7200, -9.1500),
+-- Despesas
 (3, 11, 'McDonald''s', 9.50, 'Despesa', '2024-12-02', 'McDonald''s Rossio', 38.7139, -9.1394),
 (3, 11, 'KFC', 11.00, 'Despesa', '2024-12-05', 'KFC', 38.7223, -9.1393),
 (3, 14, 'Jogo PS5 FC 25', 69.99, 'Despesa', '2024-12-08', 'Game Store', 38.7223, -9.1393),
@@ -363,6 +231,7 @@ INSERT INTO transacao (id_carteira, id_categoria, descricao, valor, tipo, data_t
 -- TRANSAÇÕES DA ANA (id_carteira = 4)
 -- =============================================
 INSERT INTO transacao (id_carteira, id_categoria, descricao, valor, tipo, data_transacao, localizacao, latitude, longitude) VALUES
+-- Receitas
 (4, 1, 'Salário Trabalho Remoto Outubro', 1200.00, 'Receita', '2024-10-01', 'Remoto', NULL, NULL),
 (4, 1, 'Salário Trabalho Remoto Novembro', 1200.00, 'Receita', '2024-11-01', 'Remoto', NULL, NULL),
 (4, 1, 'Salário Trabalho Remoto Dezembro', 1200.00, 'Receita', '2024-12-01', 'Remoto', NULL, NULL),
@@ -370,6 +239,7 @@ INSERT INTO transacao (id_carteira, id_categoria, descricao, valor, tipo, data_t
 (4, 3, 'Revisão de Textos', 80.00, 'Receita', '2024-11-20', 'Freelance', NULL, NULL),
 (4, 5, 'Dividendos ETF', 45.00, 'Receita', '2024-12-15', NULL, NULL, NULL),
 (4, 5, 'Juros Poupança', 12.50, 'Receita', '2024-12-01', NULL, NULL, NULL),
+-- Despesas
 (4, 18, 'Renda Quarto', 350.00, 'Despesa', '2024-12-01', 'Lisboa', 38.7223, -9.1393),
 (4, 18, 'Renda Quarto', 350.00, 'Despesa', '2024-11-01', 'Lisboa', 38.7223, -9.1393),
 (4, 18, 'Renda Quarto', 350.00, 'Despesa', '2024-10-01', 'Lisboa', 38.7223, -9.1393),
@@ -453,7 +323,7 @@ INSERT INTO transacao (id_carteira, id_categoria, descricao, valor, tipo, data_t
 (9, 24, 'Presentes Natal', 65.00, 'Despesa', '2024-12-18', 'Centro Comercial', 38.7535, -9.2008);
 
 -- =============================================
--- TRANSAÇÕES DOS OUTROS UTILIZADORES (10-15)
+-- TRANSAÇÕES DOS OUTROS UTILIZADORES
 -- =============================================
 -- Carlos (id_carteira = 10)
 INSERT INTO transacao (id_carteira, id_categoria, descricao, valor, tipo, data_transacao, localizacao, latitude, longitude) VALUES
@@ -537,7 +407,7 @@ INSERT INTO meta (id_user, nome, valor_objetivo, valor_atual, data_inicio, data_
 (4, 'Fundo Investimento', 2000.00, 1200.00, '2024-06-01', '2025-06-30'),
 (4, 'Mestrado', 5000.00, 1500.00, '2024-01-01', '2026-09-30'),
 
--- Metas dos outros utilizadores
+-- Metas dos outros
 (5, 'Bicicleta Elétrica', 1200.00, 520.00, '2024-04-01', '2025-04-30'),
 (6, 'MacBook Air', 1500.00, 900.00, '2024-01-01', '2025-03-31'),
 (7, 'Curso UX Design', 800.00, 500.00, '2024-05-01', '2025-01-31'),
@@ -591,185 +461,7 @@ INSERT INTO orcamento (id_user, mes, limite, gasto_atual) VALUES
 (15, 'Dezembro 2024', 600.00, 646.00);
 
 -- =============================================
--- PARTE 3: CONSULTAS PRINCIPAIS (QUERIES)
--- =============================================
-
--- =============================================
--- CONSULTAS DE UTILIZADORES
--- =============================================
-
--- Listar todos os utilizadores com suas carteiras
-SELECT 
-    u.id_user,
-    u.nome,
-    u.email,
-    c.saldo AS saldo_carteira,
-    u.notificacoes
-FROM users u
-INNER JOIN carteira c ON u.id_user = c.id_user
-ORDER BY u.nome;
-
--- Utilizadores com maior saldo
-SELECT 
-    u.nome,
-    u.email,
-    c.saldo
-FROM users u
-INNER JOIN carteira c ON u.id_user = c.id_user
-ORDER BY c.saldo DESC
-LIMIT 5;
-
--- =============================================
--- CONSULTAS DE TRANSAÇÕES
--- =============================================
-
--- Total de receitas e despesas por utilizador
-SELECT 
-    u.nome,
-    SUM(CASE WHEN t.tipo = 'Receita' THEN t.valor ELSE 0 END) AS total_receitas,
-    SUM(CASE WHEN t.tipo = 'Despesa' THEN t.valor ELSE 0 END) AS total_despesas,
-    SUM(CASE WHEN t.tipo = 'Receita' THEN t.valor ELSE -t.valor END) AS balanco
-FROM users u
-INNER JOIN carteira c ON u.id_user = c.id_user
-LEFT JOIN transacao t ON c.id_carteira = t.id_carteira
-GROUP BY u.id_user, u.nome
-ORDER BY balanco DESC;
-
--- Gastos por categoria (para gráficos)
-SELECT 
-    cat.nome AS categoria,
-    cat.icone,
-    COUNT(t.id_transacao) AS quantidade,
-    SUM(t.valor) AS total_gasto
-FROM transacao t
-INNER JOIN carteira c ON t.id_carteira = c.id_carteira
-INNER JOIN categoria cat ON t.id_categoria = cat.id_categoria
-WHERE c.id_user = 1 AND t.tipo = 'Despesa'
-GROUP BY cat.id_categoria, cat.nome, cat.icone
-ORDER BY total_gasto DESC;
-
--- Transações com localização GPS
-SELECT 
-    t.descricao,
-    t.valor,
-    t.tipo,
-    t.data_transacao,
-    t.localizacao,
-    t.latitude,
-    t.longitude
-FROM transacao t
-INNER JOIN carteira c ON t.id_carteira = c.id_carteira
-WHERE c.id_user = 1 
-    AND t.latitude IS NOT NULL 
-    AND t.longitude IS NOT NULL
-ORDER BY t.data_transacao DESC;
-
--- Resumo financeiro mensal
-SELECT 
-    DATE_FORMAT(t.data_transacao, '%Y-%m') AS mes,
-    SUM(CASE WHEN t.tipo = 'Receita' THEN t.valor ELSE 0 END) AS receitas,
-    SUM(CASE WHEN t.tipo = 'Despesa' THEN t.valor ELSE 0 END) AS despesas,
-    SUM(CASE WHEN t.tipo = 'Receita' THEN t.valor ELSE -t.valor END) AS saldo_mes
-FROM transacao t
-INNER JOIN carteira c ON t.id_carteira = c.id_carteira
-WHERE c.id_user = 1
-GROUP BY DATE_FORMAT(t.data_transacao, '%Y-%m')
-ORDER BY mes DESC;
-
--- =============================================
--- CONSULTAS DE METAS
--- =============================================
-
--- Metas de um utilizador com progresso
-SELECT 
-    m.id_meta,
-    m.nome,
-    m.valor_objetivo,
-    m.valor_atual,
-    ROUND((m.valor_atual / m.valor_objetivo) * 100, 2) AS percentagem_concluida,
-    m.data_inicio,
-    m.data_fim,
-    DATEDIFF(m.data_fim, CURRENT_DATE()) AS dias_restantes
-FROM meta m
-WHERE m.id_user = 1
-ORDER BY percentagem_concluida DESC;
-
--- Metas próximas de serem concluídas (>80%)
-SELECT 
-    u.nome AS utilizador,
-    m.nome AS meta,
-    m.valor_objetivo,
-    m.valor_atual,
-    ROUND((m.valor_atual / m.valor_objetivo) * 100, 2) AS percentagem
-FROM meta m
-INNER JOIN users u ON m.id_user = u.id_user
-WHERE (m.valor_atual / m.valor_objetivo) >= 0.8
-    AND m.valor_atual < m.valor_objetivo
-ORDER BY percentagem DESC;
-
--- =============================================
--- CONSULTAS DE ORÇAMENTOS
--- =============================================
-
--- Orçamentos de um utilizador
-SELECT 
-    o.id_orcamento,
-    o.mes,
-    o.limite,
-    o.gasto_atual,
-    (o.limite - o.gasto_atual) AS disponivel,
-    ROUND((o.gasto_atual / o.limite) * 100, 2) AS percentagem_gasta
-FROM orcamento o
-WHERE o.id_user = 1
-ORDER BY o.mes DESC;
-
--- Orçamentos ultrapassados (alertas)
-SELECT 
-    u.nome,
-    u.email,
-    o.mes,
-    o.limite,
-    o.gasto_atual,
-    (o.gasto_atual - o.limite) AS excedido
-FROM orcamento o
-INNER JOIN users u ON o.id_user = u.id_user
-WHERE o.gasto_atual > o.limite
-ORDER BY excedido DESC;
-
--- =============================================
--- ESTATÍSTICAS GERAIS
--- =============================================
-
--- Total de utilizadores
-SELECT COUNT(*) AS total_utilizadores FROM users;
-
--- Total de transações no sistema
-SELECT 
-    COUNT(*) AS total_transacoes,
-    SUM(CASE WHEN tipo = 'Receita' THEN valor ELSE 0 END) AS volume_receitas,
-    SUM(CASE WHEN tipo = 'Despesa' THEN valor ELSE 0 END) AS volume_despesas
-FROM transacao;
-
--- Categorias mais utilizadas
-SELECT 
-    cat.nome,
-    cat.tipo,
-    COUNT(t.id_transacao) AS vezes_utilizada,
-    SUM(t.valor) AS valor_total
-FROM categoria cat
-LEFT JOIN transacao t ON cat.id_categoria = t.id_categoria
-GROUP BY cat.id_categoria, cat.nome, cat.tipo
-ORDER BY vezes_utilizada DESC
-LIMIT 10;
-
--- =============================================
--- FIM DO SCRIPT STUDYCASH
--- =============================================
--- Resumo dos dados:
--- • 15 Utilizadores
--- • 15 Carteiras
--- • 25 Categorias
--- • 150+ Transações (6 meses de histórico)
--- • 25 Metas Financeiras
--- • 30+ Orçamentos
+-- Fim do Script de Inserção
+-- Total: 15 utilizadores, 25 categorias, 150+ transações
+-- 25 metas, 30+ orçamentos
 -- =============================================
