@@ -1,4 +1,4 @@
-![LOGO_IADE](imagensRelatorio/iade_ue_normal_rgb.webp)
+
 
 # Universidade Europeia IADE
 ## Licenciatura em Engenharia informática
@@ -206,8 +206,7 @@ O desenvolvimento do projeto contou com as seguintes tecnologias:
 **Linguagens**: Java, Kotlin e SQL  
 **Aplicações**: MYSQL Workbench, Github, Discord, Clickup, Visual Studio Code, Android Studio.
 
-## Planeamento e calendarização
-![imagem](imagensRelatorio/b4722051-6527-4cd4-847d-39d562edc95a.JPG)
+
 
 ## Personas
 
@@ -456,38 +455,7 @@ O desenvolvimento do projeto contou com as seguintes tecnologias:
 - Cada meta está associada a uma categoria.
 - O progresso da meta depende das receitas associadas.
 
-## Diagrama de classes
 
-![imagem](imagensRelatorio/ba8789a5-e40b-4c1e-99a0-37920cfc1ac5.JPG)
-
-## Dicionário de dados
-
-### Utilizadores
-![imagem](imagensRelatorio/2987a25f-12b1-47d6-977f-814bc737970e.JPG)
-
-### Metas
-![imagem](imagensRelatorio/de17a64a-fa60-48c9-a6bd-55c06709b4a5.JPG)
-
-### Orçamentos
-![imagem](imagensRelatorio/79d80e67-8a6b-4b61-9cf2-7e9b9b26d261.JPG)
-
-### Transações
-![imagem](imagensRelatorio/f3ecfb82-0ce9-4c80-871d-78a17be99ede.JPG)
-
-### Tipo transações
-![imagem](imagensRelatorio/08f84691-260a-4623-9611-3c6ec917bf18.JPG)
-
-### Conta 
-![imagem](imagensRelatorio/04384bab-527f-4abf-9751-928bf10a3c15.JPG)
-
-### Tipo de conta 
-![imagem](imagensRelatorio/35b50a5c-e6cf-41d0-a3d2-fd5258510574.JPG)
-
-### Transferências
-![imagem](imagensRelatorio/08f84691-260a-4623-9611-3c6ec917bf18.JPG)
-
-### Orçamento Transação 
-![imagem](imagensRelatorio/95edd261-6630-432d-8e04-f1f9e6bfc6ef.JPG)
 
 ## Documentação REST
 
@@ -687,9 +655,7 @@ A API REST do StudyCash implementa operações CRUD completas para todas as enti
 - **Método**: DELETE
 - **Endpoint**: `http://localhost:8080/api/metas/1`
 
-## MER
 
-![imagem](imagensRelatorio/00c2224e-422c-4efc-9b7f-f78b9109d3d1.JPG)
 
 ## Contribuição dos Membros da Equipe no Projeto
 
