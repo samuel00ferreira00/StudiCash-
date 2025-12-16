@@ -1,0 +1,25 @@
+# IDE
+.idea/
+*.iml
+.DS_Store
+
+# Backend
+backend/target/
+backend/.idea/
+*.class
+
+# Frontend
+frontend/.gradle/
+frontend/build/
+frontend/app/build/
+frontend/.idea/
+frontend/.kotlin/
+frontend/local.properties
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+

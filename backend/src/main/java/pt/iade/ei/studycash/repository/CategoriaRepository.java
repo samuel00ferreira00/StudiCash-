@@ -1,0 +1,1 @@
+package pt.iade.ei.studycash.repository; import org.springframework.data.jpa.repository.JpaRepository; import pt.iade.ei.studycash.model.Categoria; public interface CategoriaRepository extends JpaRepository<Categoria, Long>{}

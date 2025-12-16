@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Queries para verificar apps disponíveis (Android 11+) -->
+    <queries>
+        <!-- Google Maps -->
+        <package android:name="com.google.android.apps.maps" />
+        <!-- Para abrir URLs no browser -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="geo" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.StudyCash" android:usesCleartextTraffic="true">
+        <activity
+            android:name=".LauncherActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.StudyCash" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.StudyCash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.StudyCash" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.StudyCash" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.StudyCash" />
+        <activity
+            android:name=".TransactionsActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.StudyCash" />
+        <activity
+            android:name=".NewRevenueActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.StudyCash" />
+        <activity
+            android:name=".NewExpenseActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.StudyCash" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.StudyCash" />
+        <activity
+            android:name=".GoalsActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.StudyCash" />
+        <activity
+            android:name=".BudgetActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.StudyCash" />
+        <activity
+            android:name=".DetailGoalsActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.StudyCash" />
+        <activity
+            android:name=".DetailTransactionsActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.StudyCash" />
+    </application>
+
+</manifest>
