@@ -660,53 +660,75 @@ A API REST do StudyCash implementa operações CRUD completas para todas as enti
 ## Contribuição dos Membros da Equipe no Projeto
 
 ### Marlinda Congo
-- Contribuiu para o planeamento, pesquisa e desenvolvimento do tema.
-- Contribuiu para a criação do Poster, Mockups no Figma e Logotipo.
-- Responsável por elaborar todos os relatórios, desde a primeira entrega até a terceira entrega.
-- Responsável pela Modelagem da base de dados final (derivação do DER e modelo relacional).
-- Responsável pela implementação do backend final (endpoints REST, serviços e entidades).
-- Responsável pela criação da base de dados final (criando os ficheiros create, populate e queries).
-- Participou no desenvolvimento do frontend.
-- Responsável pela conexão do backend com a base de dados.
-- Responsável pela criação das personas.
-- Responsável por escrever a documentação REST.
-- Responsável por fazer a planificação no ClickUp.
+•	Contribuiu para o planeamento, pesquisa e desenvolvimento do tema.
+•	Contribuiu para a criação do Poster, Mockups no Figma e Logotipo.
+•	Responsável por elaborar todos os relatórios, desde a primeira entrega até a terceira entrega.
+•	Responsável pela Modelagem da base de dados (derivação do DER e modelo relacional).
+•	Responsável pela criação da base de dados (criando os ficheiros create, populate e queries).
+•	Participou no desenvolvimento do frontend.
+•	Responsável pela conexão do backend com a base de dados.
+•	Responsável pela criação das personas.
+•	Responsável por escrever a documentação REST.
+•	Responsável por fazer a planificação no clickup.
+•	Auxiliou na criação dos casos de uso e testes finais.
+•	Contribuiu para correção de bugs e otimização de performance.
+
 
 ### Samuel Ferreira
-- Contribuiu para o planeamento, pesquisa e desenvolvimento do tema.
-- Contribuiu para a criação do Poster, Mockups no Figma e Logotipo.
-- Desenvolveu o frontend em Android Studio.
-- Implementou as interfaces de utilizador (UI/UX) e navegação das telas.
-- Construiu a comunicação com o backend via Retrofit.
-- Criou o dashboard e os componentes visuais da aplicação.
-- Auxiliou na criação dos casos de uso e testes finais.
-- Contribuiu para correção de bugs e otimização de performance.
-- Contribuiu para a criação da primeira versão da base de dados.
-- Responsável por atualizar o repositório e importar todos os ficheiros de código fonte no Github.
-- Responsável pela criação dos slides da primeira entrega.
-- Contribuiu para a gravação do vídeo.
+•	Contribuiu para o planeamento, pesquisa e desenvolvimento do tema.
+•	Contribuiu para a criação do Poster, Mockups no Figma e Logotipo.
+•	Desenvolveu o frontend em Android Studio.
+•	Implementou as interfaces de utilizador (UI/UX) e navegação das telas.
+•	Construiu a comunicação com o backend via Retrofit.
+•	Auxiliou na criação dos casos de uso e testes finais.
+•	Contribuiu para correção de bugs e otimização de performance.
+•	Contribui para a criação da base de dados.
+•	Responsável por atualizar o repositório e importar todos os ficheiros de código fonte no Github.
+•	Responsável pela criação dos slides.
+
 
 ### Constantino Chipopa
-- Para primeira entrega tentou contribuir fazendo o gráfico de Gantt, porém não conseguiu por ter encontrado dificuldades.
-- Contribuiu para a criação da primeira versão do Backend e conexão com a base de dados.
-- Contribuiu para a criação da primeira versão do Diagrama ER.
-- Responsável pela criação do vídeo.
+•	Contribuiu para o planeamento, pesquisa e desenvolvimento do tema.
+•	Contribuiu para a criação do Poster, Mockups no Figma e Logotipo.
+•	Responsável pela Modelagem da base de dados (derivação do DER e modelo relacional).
+•	Contribuiu fazendo o gráfico de gantt.
+•	Contribui para a criação do Backend e conexão com a base de dados.
+•	Contribui para a criação do Diagrama ER.
+•	Responsável pela criação do vídeo.
+•	Responsável pela implementação do backend (endpoints REST, serviços e entidades).
+•	Responsável pela conexão do backend com a base de dados.
+•	Responsável pela criação dos slides.
+•	Responsável por escrever a documentação REST.
+•	Auxiliou na criação dos casos de uso e testes finais.
+•	Contribuiu para correção de bugs e otimização de performance.
 
-**OBS**: O Constantino, durante o desenvolvimento do projeto mostrou-se sempre disposto a ajudar e dar a sua contribuição atempadamente para um bom resultado do projeto em equipe.
 
 ### Lueji Covilhã
-- Para a primeira entrega tentou contribuir com a criação dos slides para a primeira apresentação. Entretanto, os slides feitos por ele não estavam coerentes com o que se pretendia apresentar.
-- Contribuiu para a criação da primeira versão do Backend e conexão com a base de dados.
-- Auxiliou o Samuel na conexão do frontend com o backend.
+•	Contribuiu para o planeamento, pesquisa e desenvolvimento do tema.
+•	Contribuiu para a criação do Poster, Mockups no Figma e Logotipo.
+•	Responsável pela Modelagem da base de dados final (derivação do DER e modelo relacional).
+•	Contribuiu para a criação do Backend e conexão com a base de dados.
+•	Conexão do frontend com o backend
+•	Responsável pela implementação do backend (endpoints REST, serviços e entidades).
+•	Responsável pela conexão do backend com a base de dados.
+•	Responsável pela criação dos slides.
+•	Auxiliou na criação dos casos de uso e testes finais.
+•	Contribuiu para correção de bugs e otimização de performance.
 
-**OBS**: O Lueji, para a primeira e segunda entrega mostrou-se pouco proativo com o desenvolvimento do projeto em equipe. Entretanto, para a terceira entrega mostrou-se mais proativo com o trabalho em equipe.
 
 ### Gilma Mulanda
-- Tentou contribuir no desenvolvimento do frontend, porém teve complicações no seu computador com o Android Studio.
-- Contribuiu com a organização da segunda apresentação oral.
-- Contribuiu para a gravação do vídeo.
+•	Contribuiu para o planeamento, pesquisa e desenvolvimento do tema.
+•	Contribuiu para a criação do Poster, Mockups no Figma e Logotipo.
+•	Desenvolveu o frontend em Android Studio.
+•	Contribuiu com a organização da apresentação oral.
+•	Contribuiu para a gravação do vídeo.
+•	Responsável pela conexão do backend com a base de dados.
+•	Implementou as interfaces de utilizador (UI/UX) e navegação das telas.
+•	Criou o dashboard e os componentes visuais da aplicação.
+•	Responsável pela criação dos slides.
+•	Auxiliou na criação dos casos de uso e testes finais.
+•	Contribuiu para correção de bugs e otimização de performance.
 
-**OBS**: A Gilma integrou-se no grupo após a primeira entrega. Durante o desenvolvimento do projeto mostrou-se pouco proativa com os trabalhos em equipe. Entretanto, para os últimos dias tem se mostrado mais presente.
 
 ## Conclusão
 
